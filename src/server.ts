@@ -48,7 +48,6 @@ app.get("/hello", (req, res) => {
   logger.info("Hello World!");
   res.json({ message: "Hello World!" });
 });
-
 // App specific endpoints
 app.get("/api/players", (req, res) => {
   logger.info("/api/players");
