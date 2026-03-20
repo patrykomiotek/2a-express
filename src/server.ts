@@ -38,15 +38,30 @@ app.use(bodyParser.raw({ type: "application/vnd.custom-type" }));
 // parse an HTML body into a string
 app.use(bodyParser.text({ type: "text/html" }));
 
+// http://localhost:3000
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+// GET http://localhost:3000/hello
 app.get("/hello", (req, res) => {
   logger.info("Hello World!");
   res.json({ message: "Hello World!" });
 });
 
+// App specific endpoints
+app.get("/api/players", (req, res) => {
+  logger.info("/api/players");
+  // logic
+
+  // Request -> API Fortnite
+  // axios.get('https://') - pobieranie danych
+
+  // return result
+  res.json({ message: "Hello World!" });
+});
+
+// POST http://localhost:3000/hello
 app.post("/hello", (req, res) => {
   const { name } = req.body;
   res.json({ message: `Hello ${name}!` });
